@@ -21,7 +21,7 @@ const HomePage = () => {
 
   useEffect(() => {
     async function dp() {
-      let res = await axios.get(`${baseUrl}/user`)
+      let res = await axios.get(`${baseUrl}user`)
       setData(res.data)
       setSearchResult(res.data)
       for (let i in res.data) {
@@ -47,7 +47,7 @@ const HomePage = () => {
   const handleClick = async (e) => {
     if (e.target.id !== showOnRight) {
       // setPersonInformation(init)
-      const result = await axios.get(`${baseUrl}/user/${e.target.id}`)
+      const result = await axios.get(`${baseUrl}user/${e.target.id}`)
       if (result.data != undefined) {
         const temp = {
           firstName: result.data.person.firstName,

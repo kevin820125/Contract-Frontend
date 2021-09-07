@@ -30,13 +30,13 @@ const SignUp = ({ f, l, e, i , create}) => {
 
     async function deleteEmail(er) {
         const specificEmail = er.target.getAttribute('name');
-        const res = await axios.get(`${baseUrl}/user/${id}`);
+        const res = await axios.get(`${baseUrl}user/${id}`);
         const result = res.data.person.email;
         const newEmail = result.filter(check => check !== specificEmail);
         setNewEmail([...newEmail]);
         await axios({
             method: "put",
-            url: `${baseUrl}/user/${id}`,
+            url: `${baseUrl}user/${id}`,
             data: {
                 firstName: firstName,
                 lastName: lastName,
@@ -63,7 +63,7 @@ const SignUp = ({ f, l, e, i , create}) => {
             setEmail([...email, newEmail])
             await axios({
                 method: "put",
-                url: `${baseUrl}/user/${id}`,
+                url: `${baseUrl}user/${id}`,
                 data: {
                     firstName: firstName,
                     lastName: lastName,
@@ -86,7 +86,7 @@ const SignUp = ({ f, l, e, i , create}) => {
             if(newEmail.length > 0 && check(newEmail)){
                     await axios({
                         method:"post",
-                        url: `${baseUrl}/user/`,
+                        url: `${baseUrl}user/`,
                         data: {
                             firstName: firstName,
                             lastName: lastName,
@@ -96,7 +96,7 @@ const SignUp = ({ f, l, e, i , create}) => {
             }else{
                 await axios({
                     method:"post",
-                    url: `${baseUrl}/user/`,
+                    url: `${baseUrl}user/`,
                     data: {
                         firstName: firstName,
                         lastName: lastName,
@@ -107,7 +107,7 @@ const SignUp = ({ f, l, e, i , create}) => {
         }else{
             await axios({
                 method: "put",
-                url: `${baseUrl}/user/${id}`,
+                url: `${baseUrl}user/${id}`,
                 data: {
                     firstName: firstName,
                     lastName: lastName,
@@ -118,7 +118,7 @@ const SignUp = ({ f, l, e, i , create}) => {
     }
 
     async function handleDelete() {
-        await axios.delete(`${baseUrl}/user/${id}`)
+        await axios.delete(`${baseUrl}user/${id}`)
     }
     return (
         <form>
