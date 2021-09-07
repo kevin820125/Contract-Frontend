@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { baseUrl } from '../config/const.js'
 
 const SignUp = ({ f, l, e, i , create}) => {
+    console.log(baseUrl);
     const { register, handleSubmit, errors } = useForm();
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
